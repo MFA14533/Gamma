@@ -657,3 +657,12 @@ html[data-motion=off]{scroll-behavior:auto}html[data-motion=off] *,html[data-mot
 /* Focus changes affect only equipment imagery, never readable text. */
 @media(min-width:761px) and (prefers-reduced-motion:no-preference){.equipment:not(.linear) .equipment-object{filter:blur(var(--focus-blur,0px)) drop-shadow(-16px 24px 18px #0008)}.equipment.in-view:not(.linear) .equipment-object{will-change:transform,filter}}
 .equipment:not(.in-view) .equipment-object{will-change:auto}.equipment.linear .equipment-object{filter:none!important}
+
+/* A fourth scene with a portrait product image and restrained tracking motion. */
+@media(min-width:761px){.equipment:not(.linear){height:365svh}.scene-3 .equipment-object{width:100%;max-width:670px;height:62svh;max-height:620px;object-fit:contain;transform:translate3d(calc(var(--distance)*-45px),calc(var(--distance)*18px),0) rotate(calc(var(--distance)*3deg)) scale(calc(1 - var(--distance)*.025))}.scene-3 .object-orbit{opacity:.35}.scene-nav{gap:clamp(12px,2.4vw,40px)}}
+@media(max-width:760px){.scene-3 .equipment-object{width:100%;height:310px;object-fit:contain;transform:none!important}}
+.equipment.linear .scene-3 .equipment-object{transform:none!important;object-fit:contain}
+@media(prefers-reduced-motion:reduce){.equipment:not(.linear){height:auto}.scene-3 .equipment-object{transform:none!important}}
+
+@media(min-width:761px) and (prefers-reduced-motion:no-preference){.equipment:not(.linear) .equipment-copy,.equipment:not(.linear) .equipment-name{opacity:var(--copy-alpha,1)}}
+
