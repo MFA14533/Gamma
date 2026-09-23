@@ -1,0 +1,2 @@
+import fs from 'node:fs';import path from 'node:path';
+const root=path.resolve('..');if(!fs.existsSync('dist/index.html')||!fs.existsSync(path.join(root,'CNAME')))throw new Error('Run from site-source after building; repository CNAME required.');for(const name of fs.readdirSync('dist')){if(name==='.openai')continue;fs.cpSync(path.join('dist',name),path.join(root,name),{recursive:true})}console.log('Published build copied to GitHub Pages root.');
