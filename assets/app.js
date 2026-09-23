@@ -2,19 +2,20 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = App;
 const jsx_runtime_1 = __r(1);
-const DroneFlight_tsx_1 = __r(3);
-const ColorLab_tsx_1 = __r(4);
-const Equipment_tsx_1 = __r(5);
+const ProcessGallery_tsx_1 = __r(3);
+const DroneFlight_tsx_1 = __r(10);
+const ColorLab_tsx_1 = __r(11);
+const Equipment_tsx_1 = __r(12);
 const react_1 = __r(2);
-const arrow_up_right_js_1 = __r(6);
-const arrow_down_js_1 = __r(9);
-const menu_js_1 = __r(10);
-const x_js_1 = __r(11);
-const plus_js_1 = __r(12);
-const message_circle_js_1 = __r(13);
-const phone_js_1 = __r(14);
-const mail_js_1 = __r(15);
-const instagram_js_1 = __r(16);
+const arrow_up_right_js_1 = __r(4);
+const arrow_down_js_1 = __r(13);
+const menu_js_1 = __r(14);
+const x_js_1 = __r(9);
+const plus_js_1 = __r(15);
+const message_circle_js_1 = __r(16);
+const phone_js_1 = __r(17);
+const mail_js_1 = __r(18);
+const instagram_js_1 = __r(19);
 const services = [
     { title: 'Reklam filmi', tag: 'MARKANIZIN HİKÂYESİ', text: 'Ürününüzü ve markanızı, izleyicinin aklında kalan bir hikâyeye dönüştürüyoruz. Konsept, çekim ve kurguyu aynı yaratıcı bakışla ele alıyoruz.', items: 'Konsept geliştirme · Ürün filmi · Marka hikâyesi' },
     { title: 'Kurumsal tanıtım filmi', tag: 'İŞİNİZİ GÖRÜNÜR KILIN', text: 'Şirketinizin insanlarını, üretimini ve vizyonunu sinematik bir dille anlatıyoruz. Elazığ merkezli yapım ekibimizle projenin ihtiyacına göre çekim planlıyoruz.', items: 'Şirket tanıtımı · Röportaj · Kurumsal belgesel' },
@@ -23,37 +24,22 @@ const services = [
     { title: 'Kurgu & renk düzenleme', tag: 'SON KARENİN ÖTESİ', text: 'Görüntü, ses ve ritmi bir araya getiriyoruz. Kurgu ve color grading ile hikâyenin duygusunu belirginleştiriyor, filmin görsel bütünlüğünü tamamlıyoruz.', items: 'Video kurgu · Color grading · Ses düzenleme' },
     { title: 'Yaratıcı prodüksiyon', tag: 'FİKİRDEN YAYINA', text: 'Kısa film, müzik videosu, sahne arkası ve canlı yayın projelerinde yaratıcı planlamadan son teslimata kadar birlikte çalışıyoruz.', items: 'Kısa film · Motion tasarım · Sahne arkası · Canlı yayın' }
 ];
-const projects = [
-    { title: 'Bir markanın karakteri.', category: 'Reklam', image: '/images/product.webp', alt: 'Koyu fonda ışık ve dumanla aydınlatılmış ürün; temsili reklam filmi görseli', text: 'Ürünün dokusunu, ışığını ve karakterini öne çıkaran reklam filmi yaklaşımı.', service: 'Reklam filmi', note: 'Yapay zekâ ile oluşturulmuş temsili görsel' },
-    { title: 'Perspektifi değiştir.', category: 'Drone', image: '/images/aerial.webp', alt: 'Dağlık coğrafya ve su kenarında uzanan yol; temsili drone çekimi görseli', text: 'Mekânı daha geniş bir hikâyenin parçası yapan sinematik hava çekimleri.', service: 'Drone çekimi', note: 'Yapay zekâ ile oluşturulmuş temsili görsel' },
-    { title: 'Hikâyenin başladığı yer.', category: 'Prodüksiyon', image: '/images/cinema.jpg', alt: 'Profesyonel video kamerasının ekranı ve çekim kontrolleri', text: 'Planlama, kamera, ışık ve ses: doğru anı yakalamak için bir araya gelen detaylar.', service: 'Yaratıcı prodüksiyon', note: 'Temsili stok görsel · Pexels' }
-];
-const filters = ['Tümü', 'Reklam', 'Drone', 'Prodüksiyon'];
 function App() {
-    const [menu, setMenu] = (0, react_1.useState)(false), [filter, setFilter] = (0, react_1.useState)('Tümü'), [selected, setSelected] = (0, react_1.useState)(null), [service, setService] = (0, react_1.useState)('Reklam filmi'), [prepared, setPrepared] = (0, react_1.useState)(false), [messageUrl, setMessageUrl] = (0, react_1.useState)('https://wa.me/905393231002');
-    const dialog = (0, react_1.useRef)(null);
+    const [menu, setMenu] = (0, react_1.useState)(false), [service, setService] = (0, react_1.useState)('Reklam filmi'), [prepared, setPrepared] = (0, react_1.useState)(false), [messageUrl, setMessageUrl] = (0, react_1.useState)('https://wa.me/905393231002');
     const form = (0, react_1.useRef)(null);
-    (0, react_1.useEffect)(() => { if (selected !== null) {
-        dialog.current?.showModal();
-        const old = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
-        return () => { document.body.style.overflow = old; };
-    } }, [selected]);
     (0, react_1.useEffect)(() => { const query = matchMedia('(prefers-reduced-motion: reduce)'); if (query.matches)
         return; const items = document.querySelectorAll('.section-heading,.studio-grid,.contact-grid,.project-card'); const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
-    } }), { threshold: .08 }); items.forEach(el => { el.classList.add('reveal'); observer.observe(el); }); return () => { observer.disconnect(); items.forEach(el => el.classList.remove('reveal')); }; }, [filter]);
+    } }), { threshold: .08 }); items.forEach(el => { el.classList.add('reveal'); observer.observe(el); }); return () => { observer.disconnect(); items.forEach(el => el.classList.remove('reveal')); }; }, []);
     (0, react_1.useEffect)(() => { const onKey = (e) => { if (e.key === 'Escape')
         setMenu(false); }; window.addEventListener('keydown', onKey); return () => window.removeEventListener('keydown', onKey); }, []);
-    const close = () => { dialog.current?.close(); setSelected(null); };
-    const pick = (value) => { setService(value); close(); setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }), 0); };
+    const pick = (value) => { setService(value); setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }), 0); };
     function submit(e) { e.preventDefault(); const d = new FormData(e.currentTarget); const body = `Merhaba Gamma Productions,\n\nAdım: ${d.get('name')}\nŞirket: ${d.get('company') || 'Belirtilmedi'}\nE-posta: ${d.get('email')}\nHizmet: ${service}\n\nProjem: ${d.get('message')}`; const url = `https://wa.me/905393231002?text=${encodeURIComponent(body)}`; setMessageUrl(url); window.open(url, '_blank', 'noopener,noreferrer'); setPrepared(true); }
     (0, react_1.useEffect)(() => { const context = document.modelContext; if (!context?.registerTool)
         return; const abort = new AbortController(); Promise.resolve(context.registerTool({ name: 'prepare_project_inquiry', description: 'Select a production service and open the contact form. Does not send a message.', inputSchema: { type: 'object', properties: { service: { type: 'string', enum: services.map(x => x.title) } }, required: ['service'], additionalProperties: false }, annotations: { readOnlyHint: false }, execute: async (input) => { if (!input || !services.some(x => x.title === input.service))
             throw new Error('Geçersiz hizmet'); setService(input.service); document.getElementById('contact')?.scrollIntoView(); await new Promise(requestAnimationFrame); return { service: input.service, status: 'form_ready', message_sent: false }; } }, { signal: abort.signal })).catch(() => { }); return () => abort.abort(); }, []);
-    return (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)(ColorLab_tsx_1.MotionControls, {}), (0, jsx_runtime_1.jsx)("a", { className: "skip", href: "#main", children: "\u0130\u00E7eri\u011Fe ge\u00E7" }), (0, jsx_runtime_1.jsxs)("header", { children: [(0, jsx_runtime_1.jsxs)("a", { className: "brand", href: "#home", "aria-label": "Gamma Productions ana sayfa", children: [(0, jsx_runtime_1.jsx)("img", { src: "/gama%20productions%20red.png", alt: "", width: "50", height: "40" }), (0, jsx_runtime_1.jsxs)("span", { children: ["GAMMA", (0, jsx_runtime_1.jsx)("small", { children: "PRODUCTIONS" })] })] }), (0, jsx_runtime_1.jsx)("button", { className: "menu-toggle", "aria-label": "Men\u00FCy\u00FC a\u00E7/kapat", "aria-controls": "main-navigation", "aria-expanded": menu, onClick: () => setMenu(!menu), children: menu ? (0, jsx_runtime_1.jsx)(x_js_1.default, {}) : (0, jsx_runtime_1.jsx)(menu_js_1.default, {}) }), (0, jsx_runtime_1.jsxs)("nav", { id: "main-navigation", className: menu ? 'open' : '', children: [[['production', 'Prodüksiyon'], ['portfolio', 'Vitrin'], ['services', 'Hizmetler'], ['about', 'Stüdyo']].map(([id, label]) => (0, jsx_runtime_1.jsx)("a", { href: '#' + id, onClick: () => setMenu(false), children: label }, id)), (0, jsx_runtime_1.jsxs)("a", { className: "nav-contact", href: "#contact", onClick: () => setMenu(false), children: ["Bir proje konu\u015Fal\u0131m ", (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 17 })] })] })] }), (0, jsx_runtime_1.jsxs)("main", { id: "main", children: [(0, jsx_runtime_1.jsxs)("section", { id: "home", className: "hero", children: [(0, jsx_runtime_1.jsx)("img", { className: "hero-image", src: "/images/cinema.jpg", alt: "Profesyonel video kameras\u0131; temsili prod\u00FCksiyon g\u00F6rseli", width: "1800", height: "1200" }), (0, jsx_runtime_1.jsx)("div", { className: "hero-shade" }), (0, jsx_runtime_1.jsxs)("div", { className: "hero-equipment", "aria-hidden": "true", children: [(0, jsx_runtime_1.jsx)(DroneFlight_tsx_1.default, {}), (0, jsx_runtime_1.jsx)("div", { className: "hero-orbit" }), (0, jsx_runtime_1.jsx)("img", { className: "hero-camera", src: "/images/camera-cutout.webp", alt: "", width: "1785", height: "881", fetchPriority: "high" }), (0, jsx_runtime_1.jsx)("img", { className: "hero-mic", src: "/images/sound.webp", alt: "" }), (0, jsx_runtime_1.jsxs)("span", { className: "hero-equipment-caption", children: ["BLACKMAGIC CINEMA CAMERA 6K", (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("b", { children: "G\u00D6R\u00DCNT\u00DC. I\u015EIK. SES." })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "hero-content", children: [(0, jsx_runtime_1.jsx)("p", { className: "eyebrow", children: "ELAZI\u011E MERKEZL\u0130 YARATICI PROD\u00DCKS\u0130YON ST\u00DCDYOSU" }), (0, jsx_runtime_1.jsx)("p", { className: "hero-kicker", children: "GAMMA PRODUCTIONS \u2014 FILM & CREATIVE STUDIO" }), (0, jsx_runtime_1.jsxs)("h1", { children: ["G\u00D6R\u00DCNT\u00DCY\u00DC", (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("em", { children: "H\u0130SSET." })] }), (0, jsx_runtime_1.jsxs)("p", { className: "hero-copy", children: ["Sineman\u0131n diliyle d\u00FC\u015F\u00FCn\u00FCyor, markan\u0131z i\u00E7in \u00E7ekiyoruz.", (0, jsx_runtime_1.jsx)("br", {}), " Elaz\u0131\u011F\u2019da reklam filmi, sosyal medya i\u00E7erikleri ve video prod\u00FCksiyon."] }), (0, jsx_runtime_1.jsxs)("div", { className: "hero-actions", children: [(0, jsx_runtime_1.jsxs)("a", { className: "button red", href: "#production", children: ["D\u00FCnyam\u0131z\u0131 ke\u015Ffedin ", (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 20 })] }), (0, jsx_runtime_1.jsxs)("a", { className: "text-link", href: "#contact", children: ["Projenizi anlat\u0131n ", (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 19 })] })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "hero-bottom", children: [(0, jsx_runtime_1.jsx)("span", { children: "S\u0130NEMATOGRAF\u0130 \u00B7 YARATICI YAPIM \u00B7 POST-PROD\u00DCKS\u0130YON" }), (0, jsx_runtime_1.jsxs)("a", { href: "#portfolio", children: ["KE\u015EFET ", (0, jsx_runtime_1.jsx)(arrow_down_js_1.default, { size: 15 })] })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "ribbon", "aria-hidden": "true", children: [(0, jsx_runtime_1.jsx)("span", { children: "F\u0130K\u0130RDEN KADRAJA" }), (0, jsx_runtime_1.jsx)("i", { children: "\u2733" }), (0, jsx_runtime_1.jsx)("span", { children: "DUYGUDAN H\u0130K\u00C2YEYE" }), (0, jsx_runtime_1.jsx)("i", { children: "\u2733" }), (0, jsx_runtime_1.jsx)("span", { children: "GAMMA PRODUCTIONS" }), (0, jsx_runtime_1.jsx)("i", { children: "\u2733" })] }), (0, jsx_runtime_1.jsx)(Equipment_tsx_1.default, {}), (0, jsx_runtime_1.jsxs)("section", { className: "section portfolio", id: "portfolio", children: [(0, jsx_runtime_1.jsxs)("div", { className: "section-heading", children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("p", { className: "eyebrow", children: "01 / G\u00D6RSEL D\u00DCNYAMIZ" }), (0, jsx_runtime_1.jsxs)("h2", { children: ["Bir kare.", (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("span", { children: "Bin farkl\u0131 duygu." })] })] }), (0, jsx_runtime_1.jsxs)("p", { children: ["Markan\u0131n karakterinden mek\u00E2n\u0131n ruhuna.", (0, jsx_runtime_1.jsx)("br", {}), "\u00C7al\u0131\u015Fma alanlar\u0131m\u0131z\u0131 ke\u015Ffedin."] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "filter-bar", "aria-label": "Vitrin kategorileri", children: [filters.map(f => (0, jsx_runtime_1.jsxs)("button", { className: filter === f ? 'active' : '', "aria-pressed": filter === f, onClick: () => setFilter(f), children: [f, f === 'Tümü' && (0, jsx_runtime_1.jsx)("sup", { children: "03" })] }, f)), (0, jsx_runtime_1.jsxs)("span", { className: "filter-count", role: "status", children: [projects.filter(p => filter === 'Tümü' || p.category === filter).length, " alan"] })] }), (0, jsx_runtime_1.jsx)("div", { className: "project-grid", children: projects.map((p, i) => (filter === 'Tümü' || p.category === filter) && (0, jsx_runtime_1.jsxs)("button", { className: 'project-card project-' + i, onClick: () => setSelected(i), "aria-label": p.title + ' Görseli ve hizmet detayını aç', children: [(0, jsx_runtime_1.jsxs)("div", { className: "project-image", children: [(0, jsx_runtime_1.jsx)("img", { src: p.image, alt: p.alt, width: "1200", height: "800", loading: "lazy" }), (0, jsx_runtime_1.jsx)("span", { className: "image-label", children: p.category }), (0, jsx_runtime_1.jsx)("span", { className: "image-open", children: (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 25 }) })] }), (0, jsx_runtime_1.jsxs)("div", { className: "project-caption", children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsxs)("span", { className: "project-index", children: ["0", i + 1, " / ", p.category] }), (0, jsx_runtime_1.jsx)("h3", { children: p.title }), (0, jsx_runtime_1.jsx)("p", { children: p.text })] }), (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { className: "project-arrow", size: 28 })] })] }, p.title)) }), (0, jsx_runtime_1.jsx)("p", { className: "sample-note", children: "Vitrindeki g\u00F6rseller \u00E7al\u0131\u015Fma alanlar\u0131n\u0131 temsil eder; tamamlanm\u0131\u015F m\u00FC\u015Fteri projeleri de\u011Fildir." })] }), (0, jsx_runtime_1.jsxs)("section", { className: "section services", id: "services", children: [(0, jsx_runtime_1.jsxs)("div", { className: "section-heading", children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("p", { className: "eyebrow", children: "02 / NE YAPIYORUZ?" }), (0, jsx_runtime_1.jsxs)("h2", { children: ["Vizyonunuz.", (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("span", { children: "Bizim kadraj\u0131m\u0131z." })] })] }), (0, jsx_runtime_1.jsxs)("p", { children: ["Elaz\u0131\u011F\u2019da reklam filmi ve video prod\u00FCksiyon.", (0, jsx_runtime_1.jsx)("br", {}), "Fikir, kamera, \u0131\u015F\u0131k, ses ve kurgu ayn\u0131 yarat\u0131c\u0131 ekipte."] })] }), (0, jsx_runtime_1.jsx)("div", { className: "service-list", children: services.map((s, i) => (0, jsx_runtime_1.jsxs)("details", { name: "production-services", children: [(0, jsx_runtime_1.jsxs)("summary", { children: [(0, jsx_runtime_1.jsxs)("span", { className: "number", children: ["0", i + 1] }), (0, jsx_runtime_1.jsx)("h3", { children: s.title }), (0, jsx_runtime_1.jsx)("span", { className: "service-tag", children: s.tag }), (0, jsx_runtime_1.jsx)(plus_js_1.default, { className: "plus", size: 24 })] }), (0, jsx_runtime_1.jsxs)("div", { className: "service-body", children: [(0, jsx_runtime_1.jsx)("p", { children: s.text }), (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("p", { className: "service-items", children: s.items }), (0, jsx_runtime_1.jsxs)("button", { className: "text-link", onClick: () => pick(s.title), children: ["Bu hizmeti konu\u015Fal\u0131m ", (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 19 })] })] })] })] }, s.title)) })] }), (0, jsx_runtime_1.jsxs)("section", { className: "section studio", id: "about", children: [(0, jsx_runtime_1.jsx)("p", { className: "eyebrow", children: "03 / ST\u00DCDYO" }), (0, jsx_runtime_1.jsxs)("div", { className: "studio-grid", children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsxs)("h2", { children: ["Sadece g\u00F6r\u00FCnt\u00FC de\u011Fil.", (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("span", { children: "Bir bak\u0131\u015F a\u00E7\u0131s\u0131." })] }), (0, jsx_runtime_1.jsxs)("div", { className: "studio-mark", "aria-hidden": "true", children: [(0, jsx_runtime_1.jsx)("img", { src: "/gama%20productions%20red.png", alt: "", loading: "lazy" }), (0, jsx_runtime_1.jsxs)("span", { children: ["GAMMA", (0, jsx_runtime_1.jsx)("br", {}), "PRODUCTIONS"] })] })] }), (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("p", { className: "lead", children: "Biz, hik\u00E2ye anlatmay\u0131 seven bir ekibiz." }), (0, jsx_runtime_1.jsx)("p", { children: "Gamma Productions, Elaz\u0131\u011F merkezli bir yarat\u0131c\u0131 yap\u0131m \u015Firketi. Markalar\u0131n anlatacak hik\u00E2yelerini sinematografi, kurgu ve renk ile g\u00F6r\u00FCn\u00FCr k\u0131l\u0131yoruz. Her projede \u00F6nce ne anlatmak istedi\u011Finizi dinliyor, sonra o hik\u00E2yenin g\u00F6rsel dilini birlikte kuruyoruz." }), (0, jsx_runtime_1.jsx)("p", { children: "Blackmagic 6K \u00E7ekim altyap\u0131m\u0131zla reklam, k\u0131sa film ve marka hik\u00E2yelerinde \u00E7al\u0131\u015F\u0131yor; ilk fikirden post-prod\u00FCksiyona kadar projenin b\u00FCt\u00FCn\u00FCne odaklan\u0131yoruz." }), (0, jsx_runtime_1.jsxs)("a", { className: "studio-instagram", href: "https://www.instagram.com/gamma_productions03/", target: "_blank", rel: "noopener noreferrer", children: [(0, jsx_runtime_1.jsx)(instagram_js_1.default, { size: 22 }), (0, jsx_runtime_1.jsxs)("span", { children: ["Setten kareler, son i\u015Fler ve kamera arkas\u0131", (0, jsx_runtime_1.jsx)("strong", { children: "Instagram\u2019da Gamma Productions \u2197" })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "team", children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("strong", { children: "Mehmet Fatih Ayd\u0131n" }), (0, jsx_runtime_1.jsx)("span", { children: "Kreatif Direkt\u00F6r & Sinematograf" })] }), (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("strong", { children: "S\u0131la Turan" }), (0, jsx_runtime_1.jsx)("span", { children: "Edit\u00F6r & \u0130\u00E7erik Tasar\u0131mc\u0131s\u0131" })] }), (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("strong", { children: "Mira\u00E7 Ayd\u0131n" }), (0, jsx_runtime_1.jsx)("span", { children: "Post-Prod\u00FCksiyon Sanat\u00E7\u0131s\u0131" })] })] })] })] })] }), (0, jsx_runtime_1.jsx)("section", { className: "section contact", id: "contact", children: (0, jsx_runtime_1.jsxs)("div", { className: "contact-grid", children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("p", { className: "eyebrow", children: "04 / SIRADAK\u0130 H\u0130K\u00C2YE S\u0130Z\u0130N" }), (0, jsx_runtime_1.jsxs)("h2", { children: ["Bir fikriniz", (0, jsx_runtime_1.jsx)("br", {}), "varsa, ", (0, jsx_runtime_1.jsx)("span", { children: "ba\u015Flayal\u0131m." })] }), (0, jsx_runtime_1.jsx)("p", { children: "Yeni bir marka filmi, farkl\u0131 bir bak\u0131\u015F a\u00E7\u0131s\u0131 veya hen\u00FCz \u015Fekillenmemi\u015F bir fikir. Sizi dinliyoruz." }), (0, jsx_runtime_1.jsxs)("div", { className: "contact-links", children: [(0, jsx_runtime_1.jsxs)("a", { href: "tel:+905393231002", children: [(0, jsx_runtime_1.jsx)(phone_js_1.default, { size: 18 }), (0, jsx_runtime_1.jsx)("span", { children: "+90 539 323 10 02" }), (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 18 })] }), (0, jsx_runtime_1.jsxs)("a", { href: "mailto:info@gammaproductions.net", children: [(0, jsx_runtime_1.jsx)(mail_js_1.default, { size: 18 }), (0, jsx_runtime_1.jsx)("span", { children: "info@gammaproductions.net" }), (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 18 })] })] }), (0, jsx_runtime_1.jsxs)("a", { className: "instagram-contact", href: "https://www.instagram.com/gamma_productions03/", target: "_blank", rel: "noopener noreferrer", children: [(0, jsx_runtime_1.jsx)(instagram_js_1.default, { size: 23 }), (0, jsx_runtime_1.jsxs)("span", { children: [(0, jsx_runtime_1.jsx)("strong", { children: "Instagram\u2019dan yaz\u0131n" }), (0, jsx_runtime_1.jsx)("small", { children: "@gamma_productions03" })] }), (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 20 })] }), (0, jsx_runtime_1.jsx)("p", { className: "location", children: "ELAZI\u011E, T\u00DCRK\u0130YE" })] }), (0, jsx_runtime_1.jsxs)("form", { ref: form, onSubmit: submit, onChange: () => setPrepared(false), children: [(0, jsx_runtime_1.jsxs)("div", { className: "form-row", children: [(0, jsx_runtime_1.jsxs)("label", { children: ["Ad soyad ", (0, jsx_runtime_1.jsx)("span", { children: "*" }), (0, jsx_runtime_1.jsx)("input", { required: true, name: "name", autoComplete: "name", placeholder: "Ad\u0131n\u0131z ve soyad\u0131n\u0131z", maxLength: 100 })] }), (0, jsx_runtime_1.jsxs)("label", { children: ["\u015Eirket", (0, jsx_runtime_1.jsx)("input", { name: "company", autoComplete: "organization", placeholder: "Markan\u0131z / \u015Firketiniz", maxLength: 100 })] })] }), (0, jsx_runtime_1.jsxs)("label", { children: ["E-posta ", (0, jsx_runtime_1.jsx)("span", { children: "*" }), (0, jsx_runtime_1.jsx)("input", { type: "email", required: true, name: "email", autoComplete: "email", placeholder: "siz@sirketiniz.com", maxLength: 150 })] }), (0, jsx_runtime_1.jsxs)("label", { children: ["Nas\u0131l yard\u0131mc\u0131 olabiliriz?", (0, jsx_runtime_1.jsx)("select", { value: service, onChange: e => setService(e.target.value), name: "service", children: services.map(s => (0, jsx_runtime_1.jsx)("option", { children: s.title }, s.title)) })] }), (0, jsx_runtime_1.jsxs)("label", { children: ["Projenizi anlat\u0131n ", (0, jsx_runtime_1.jsx)("span", { children: "*" }), (0, jsx_runtime_1.jsx)("textarea", { required: true, name: "message", rows: 4, minLength: 10, maxLength: 2500, placeholder: "Akl\u0131n\u0131zdaki fikir, \u00E7ekim yeri ve hedefledi\u011Finiz tarih\u2026" })] }), (0, jsx_runtime_1.jsxs)("button", { type: "submit", className: "button red", children: ["WhatsApp\u2019ta devam et ", (0, jsx_runtime_1.jsx)(message_circle_js_1.default, { size: 20 })] }), (0, jsx_runtime_1.jsx)("p", { className: "form-note", children: "Form, bilgilerinizi WhatsApp mesaj\u0131na d\u00F6n\u00FC\u015Ft\u00FCr\u00FCr. Mesaj\u0131 a\u00E7\u0131lan pencerede siz g\u00F6nderirsiniz; bu sayfada kaydedilmez." }), prepared && (0, jsx_runtime_1.jsxs)("p", { role: "status", className: "form-status", children: ["Mesaj\u0131n\u0131z haz\u0131rland\u0131. A\u00E7\u0131lan WhatsApp penceresinde kontrol edip g\u00F6nderebilirsiniz. Pencere a\u00E7\u0131lmad\u0131ysa ", (0, jsx_runtime_1.jsx)("a", { href: messageUrl, target: "_blank", rel: "noreferrer", children: "haz\u0131rlanan mesaj\u0131 yeniden a\u00E7\u0131n" }), "."] })] })] }) })] }), (0, jsx_runtime_1.jsxs)("footer", { children: [(0, jsx_runtime_1.jsxs)("a", { className: "footer-word", href: "#home", children: ["GAMMA", (0, jsx_runtime_1.jsx)("span", { children: "\u2197" })] }), (0, jsx_runtime_1.jsxs)("div", { className: "footer-bottom", children: [(0, jsx_runtime_1.jsx)("span", { children: "\u00A9 2026 Gamma Productions" }), (0, jsx_runtime_1.jsx)("span", { children: "Sinematografi & Video Prod\u00FCksiyon \u00B7 Elaz\u0131\u011F" }), (0, jsx_runtime_1.jsx)("a", { href: "#home", children: "Ba\u015Fa d\u00F6n \u2191" })] })] }), (0, jsx_runtime_1.jsxs)("a", { className: "floating-contact", href: "https://wa.me/905393231002", target: "_blank", rel: "noreferrer", "aria-label": "Gamma Productions ile WhatsApp'ta ileti\u015Fime ge\u00E7", children: [(0, jsx_runtime_1.jsx)(message_circle_js_1.default, { size: 22 }), (0, jsx_runtime_1.jsx)("span", { children: "Bir proje konu\u015Fal\u0131m" })] }), (0, jsx_runtime_1.jsx)("dialog", { ref: dialog, className: "project-dialog", "aria-label": "Hizmet g\u00F6rseli ve detaylar\u0131", onCancel: close, onClick: e => { if (e.target === dialog.current)
-                    close(); }, children: selected !== null && (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)("button", { autoFocus: true, className: "dialog-close", onClick: close, "aria-label": "G\u00F6rseli kapat", children: (0, jsx_runtime_1.jsx)(x_js_1.default, {}) }), (0, jsx_runtime_1.jsx)("img", { src: projects[selected].image, alt: projects[selected].alt }), (0, jsx_runtime_1.jsxs)("div", { className: "dialog-content", children: [(0, jsx_runtime_1.jsx)("p", { className: "eyebrow", children: projects[selected].category }), (0, jsx_runtime_1.jsx)("h2", { children: projects[selected].title }), (0, jsx_runtime_1.jsx)("p", { children: projects[selected].text }), (0, jsx_runtime_1.jsxs)("p", { className: "sample-note", children: [projects[selected].note, ". Ger\u00E7ek m\u00FC\u015Fteri projesi de\u011Fildir."] }), (0, jsx_runtime_1.jsxs)("button", { className: "button red", onClick: () => pick(projects[selected].service), children: ["Benzer bir proje konu\u015Fal\u0131m ", (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 18 })] })] })] }) })] });
+    return (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)(ColorLab_tsx_1.MotionControls, {}), (0, jsx_runtime_1.jsx)("a", { className: "skip", href: "#main", children: "\u0130\u00E7eri\u011Fe ge\u00E7" }), (0, jsx_runtime_1.jsxs)("header", { children: [(0, jsx_runtime_1.jsxs)("a", { className: "brand", href: "#home", "aria-label": "Gamma Productions ana sayfa", children: [(0, jsx_runtime_1.jsx)("img", { src: "/gama%20productions%20red.png", alt: "", width: "50", height: "40" }), (0, jsx_runtime_1.jsxs)("span", { children: ["GAMMA", (0, jsx_runtime_1.jsx)("small", { children: "PRODUCTIONS" })] })] }), (0, jsx_runtime_1.jsx)("button", { className: "menu-toggle", "aria-label": "Men\u00FCy\u00FC a\u00E7/kapat", "aria-controls": "main-navigation", "aria-expanded": menu, onClick: () => setMenu(!menu), children: menu ? (0, jsx_runtime_1.jsx)(x_js_1.default, {}) : (0, jsx_runtime_1.jsx)(menu_js_1.default, {}) }), (0, jsx_runtime_1.jsxs)("nav", { id: "main-navigation", className: menu ? 'open' : '', children: [[['production', 'Prodüksiyon'], ['portfolio', 'Vitrin'], ['services', 'Hizmetler'], ['about', 'Stüdyo']].map(([id, label]) => (0, jsx_runtime_1.jsx)("a", { href: '#' + id, onClick: () => setMenu(false), children: label }, id)), (0, jsx_runtime_1.jsxs)("a", { className: "nav-contact", href: "#contact", onClick: () => setMenu(false), children: ["Bir proje konu\u015Fal\u0131m ", (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 17 })] })] })] }), (0, jsx_runtime_1.jsxs)("main", { id: "main", children: [(0, jsx_runtime_1.jsxs)("section", { id: "home", className: "hero", children: [(0, jsx_runtime_1.jsx)("img", { className: "hero-image", src: "/images/cinema.jpg", alt: "Profesyonel video kameras\u0131; temsili prod\u00FCksiyon g\u00F6rseli", width: "1800", height: "1200" }), (0, jsx_runtime_1.jsx)("div", { className: "hero-shade" }), (0, jsx_runtime_1.jsxs)("div", { className: "hero-equipment", "aria-hidden": "true", children: [(0, jsx_runtime_1.jsx)(DroneFlight_tsx_1.default, {}), (0, jsx_runtime_1.jsx)("div", { className: "hero-orbit" }), (0, jsx_runtime_1.jsx)("img", { className: "hero-camera", src: "/images/camera-cutout.webp", alt: "", width: "1785", height: "881", fetchPriority: "high" }), (0, jsx_runtime_1.jsx)("img", { className: "hero-mic", src: "/images/sound.webp", alt: "" }), (0, jsx_runtime_1.jsxs)("span", { className: "hero-equipment-caption", children: ["BLACKMAGIC CINEMA CAMERA 6K", (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("b", { children: "G\u00D6R\u00DCNT\u00DC. I\u015EIK. SES." })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "hero-content", children: [(0, jsx_runtime_1.jsx)("p", { className: "eyebrow", children: "ELAZI\u011E MERKEZL\u0130 YARATICI PROD\u00DCKS\u0130YON ST\u00DCDYOSU" }), (0, jsx_runtime_1.jsx)("p", { className: "hero-kicker", children: "GAMMA PRODUCTIONS \u2014 FILM & CREATIVE STUDIO" }), (0, jsx_runtime_1.jsxs)("h1", { children: ["G\u00D6R\u00DCNT\u00DCY\u00DC", (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("em", { children: "H\u0130SSET." })] }), (0, jsx_runtime_1.jsxs)("p", { className: "hero-copy", children: ["Sineman\u0131n diliyle d\u00FC\u015F\u00FCn\u00FCyor, markan\u0131z i\u00E7in \u00E7ekiyoruz.", (0, jsx_runtime_1.jsx)("br", {}), " Elaz\u0131\u011F\u2019da reklam filmi, sosyal medya i\u00E7erikleri ve video prod\u00FCksiyon."] }), (0, jsx_runtime_1.jsxs)("div", { className: "hero-actions", children: [(0, jsx_runtime_1.jsxs)("a", { className: "button red", href: "#production", children: ["D\u00FCnyam\u0131z\u0131 ke\u015Ffedin ", (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 20 })] }), (0, jsx_runtime_1.jsxs)("a", { className: "text-link", href: "#contact", children: ["Projenizi anlat\u0131n ", (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 19 })] })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "hero-bottom", children: [(0, jsx_runtime_1.jsx)("span", { children: "S\u0130NEMATOGRAF\u0130 \u00B7 YARATICI YAPIM \u00B7 POST-PROD\u00DCKS\u0130YON" }), (0, jsx_runtime_1.jsxs)("a", { href: "#portfolio", children: ["KE\u015EFET ", (0, jsx_runtime_1.jsx)(arrow_down_js_1.default, { size: 15 })] })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "ribbon", "aria-hidden": "true", children: [(0, jsx_runtime_1.jsx)("span", { children: "F\u0130K\u0130RDEN KADRAJA" }), (0, jsx_runtime_1.jsx)("i", { children: "\u2733" }), (0, jsx_runtime_1.jsx)("span", { children: "DUYGUDAN H\u0130K\u00C2YEYE" }), (0, jsx_runtime_1.jsx)("i", { children: "\u2733" }), (0, jsx_runtime_1.jsx)("span", { children: "GAMMA PRODUCTIONS" }), (0, jsx_runtime_1.jsx)("i", { children: "\u2733" })] }), (0, jsx_runtime_1.jsx)(Equipment_tsx_1.default, {}), (0, jsx_runtime_1.jsx)(ProcessGallery_tsx_1.default, {}), (0, jsx_runtime_1.jsxs)("section", { className: "section services", id: "services", children: [(0, jsx_runtime_1.jsxs)("div", { className: "section-heading", children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("p", { className: "eyebrow", children: "02 / NE YAPIYORUZ?" }), (0, jsx_runtime_1.jsxs)("h2", { children: ["Vizyonunuz.", (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("span", { children: "Bizim kadraj\u0131m\u0131z." })] })] }), (0, jsx_runtime_1.jsxs)("p", { children: ["Elaz\u0131\u011F\u2019da reklam filmi ve video prod\u00FCksiyon.", (0, jsx_runtime_1.jsx)("br", {}), "Fikir, kamera, \u0131\u015F\u0131k, ses ve kurgu ayn\u0131 yarat\u0131c\u0131 ekipte."] })] }), (0, jsx_runtime_1.jsx)("div", { className: "service-list", children: services.map((s, i) => (0, jsx_runtime_1.jsxs)("details", { name: "production-services", children: [(0, jsx_runtime_1.jsxs)("summary", { children: [(0, jsx_runtime_1.jsxs)("span", { className: "number", children: ["0", i + 1] }), (0, jsx_runtime_1.jsx)("h3", { children: s.title }), (0, jsx_runtime_1.jsx)("span", { className: "service-tag", children: s.tag }), (0, jsx_runtime_1.jsx)(plus_js_1.default, { className: "plus", size: 24 })] }), (0, jsx_runtime_1.jsxs)("div", { className: "service-body", children: [(0, jsx_runtime_1.jsx)("p", { children: s.text }), (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("p", { className: "service-items", children: s.items }), (0, jsx_runtime_1.jsxs)("button", { className: "text-link", onClick: () => pick(s.title), children: ["Bu hizmeti konu\u015Fal\u0131m ", (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 19 })] })] })] })] }, s.title)) })] }), (0, jsx_runtime_1.jsxs)("section", { className: "section studio", id: "about", children: [(0, jsx_runtime_1.jsx)("p", { className: "eyebrow", children: "03 / ST\u00DCDYO" }), (0, jsx_runtime_1.jsxs)("div", { className: "studio-grid", children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsxs)("h2", { children: ["Sadece g\u00F6r\u00FCnt\u00FC de\u011Fil.", (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("span", { children: "Bir bak\u0131\u015F a\u00E7\u0131s\u0131." })] }), (0, jsx_runtime_1.jsxs)("div", { className: "studio-mark", "aria-hidden": "true", children: [(0, jsx_runtime_1.jsx)("img", { src: "/gama%20productions%20red.png", alt: "", loading: "lazy" }), (0, jsx_runtime_1.jsxs)("span", { children: ["GAMMA", (0, jsx_runtime_1.jsx)("br", {}), "PRODUCTIONS"] })] })] }), (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("p", { className: "lead", children: "Biz, hik\u00E2ye anlatmay\u0131 seven bir ekibiz." }), (0, jsx_runtime_1.jsx)("p", { children: "Gamma Productions, Elaz\u0131\u011F merkezli bir yarat\u0131c\u0131 yap\u0131m \u015Firketi. Markalar\u0131n anlatacak hik\u00E2yelerini sinematografi, kurgu ve renk ile g\u00F6r\u00FCn\u00FCr k\u0131l\u0131yoruz. Her projede \u00F6nce ne anlatmak istedi\u011Finizi dinliyor, sonra o hik\u00E2yenin g\u00F6rsel dilini birlikte kuruyoruz." }), (0, jsx_runtime_1.jsx)("p", { children: "Blackmagic 6K \u00E7ekim altyap\u0131m\u0131zla reklam, k\u0131sa film ve marka hik\u00E2yelerinde \u00E7al\u0131\u015F\u0131yor; ilk fikirden post-prod\u00FCksiyona kadar projenin b\u00FCt\u00FCn\u00FCne odaklan\u0131yoruz." }), (0, jsx_runtime_1.jsxs)("a", { className: "studio-instagram", href: "https://www.instagram.com/gamma_productions03/", target: "_blank", rel: "noopener noreferrer", children: [(0, jsx_runtime_1.jsx)(instagram_js_1.default, { size: 22 }), (0, jsx_runtime_1.jsxs)("span", { children: ["Setten kareler, son i\u015Fler ve kamera arkas\u0131", (0, jsx_runtime_1.jsx)("strong", { children: "Instagram\u2019da Gamma Productions \u2197" })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "team", children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("strong", { children: "Mehmet Fatih Ayd\u0131n" }), (0, jsx_runtime_1.jsx)("span", { children: "Kreatif Direkt\u00F6r & Sinematograf" })] }), (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("strong", { children: "S\u0131la Turan" }), (0, jsx_runtime_1.jsx)("span", { children: "Edit\u00F6r & \u0130\u00E7erik Tasar\u0131mc\u0131s\u0131" })] }), (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("strong", { children: "Mira\u00E7 Ayd\u0131n" }), (0, jsx_runtime_1.jsx)("span", { children: "Post-Prod\u00FCksiyon Sanat\u00E7\u0131s\u0131" })] })] })] })] })] }), (0, jsx_runtime_1.jsx)("section", { className: "section contact", id: "contact", children: (0, jsx_runtime_1.jsxs)("div", { className: "contact-grid", children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("p", { className: "eyebrow", children: "04 / SIRADAK\u0130 H\u0130K\u00C2YE S\u0130Z\u0130N" }), (0, jsx_runtime_1.jsxs)("h2", { children: ["Bir fikriniz", (0, jsx_runtime_1.jsx)("br", {}), "varsa, ", (0, jsx_runtime_1.jsx)("span", { children: "ba\u015Flayal\u0131m." })] }), (0, jsx_runtime_1.jsx)("p", { children: "Yeni bir marka filmi, farkl\u0131 bir bak\u0131\u015F a\u00E7\u0131s\u0131 veya hen\u00FCz \u015Fekillenmemi\u015F bir fikir. Sizi dinliyoruz." }), (0, jsx_runtime_1.jsxs)("div", { className: "contact-links", children: [(0, jsx_runtime_1.jsxs)("a", { href: "tel:+905393231002", children: [(0, jsx_runtime_1.jsx)(phone_js_1.default, { size: 18 }), (0, jsx_runtime_1.jsx)("span", { children: "+90 539 323 10 02" }), (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 18 })] }), (0, jsx_runtime_1.jsxs)("a", { href: "mailto:info@gammaproductions.net", children: [(0, jsx_runtime_1.jsx)(mail_js_1.default, { size: 18 }), (0, jsx_runtime_1.jsx)("span", { children: "info@gammaproductions.net" }), (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 18 })] })] }), (0, jsx_runtime_1.jsxs)("a", { className: "instagram-contact", href: "https://www.instagram.com/gamma_productions03/", target: "_blank", rel: "noopener noreferrer", children: [(0, jsx_runtime_1.jsx)(instagram_js_1.default, { size: 23 }), (0, jsx_runtime_1.jsxs)("span", { children: [(0, jsx_runtime_1.jsx)("strong", { children: "Instagram\u2019dan yaz\u0131n" }), (0, jsx_runtime_1.jsx)("small", { children: "@gamma_productions03" })] }), (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 20 })] }), (0, jsx_runtime_1.jsx)("p", { className: "location", children: "ELAZI\u011E, T\u00DCRK\u0130YE" })] }), (0, jsx_runtime_1.jsxs)("form", { ref: form, onSubmit: submit, onChange: () => setPrepared(false), children: [(0, jsx_runtime_1.jsxs)("div", { className: "form-row", children: [(0, jsx_runtime_1.jsxs)("label", { children: ["Ad soyad ", (0, jsx_runtime_1.jsx)("span", { children: "*" }), (0, jsx_runtime_1.jsx)("input", { required: true, name: "name", autoComplete: "name", placeholder: "Ad\u0131n\u0131z ve soyad\u0131n\u0131z", maxLength: 100 })] }), (0, jsx_runtime_1.jsxs)("label", { children: ["\u015Eirket", (0, jsx_runtime_1.jsx)("input", { name: "company", autoComplete: "organization", placeholder: "Markan\u0131z / \u015Firketiniz", maxLength: 100 })] })] }), (0, jsx_runtime_1.jsxs)("label", { children: ["E-posta ", (0, jsx_runtime_1.jsx)("span", { children: "*" }), (0, jsx_runtime_1.jsx)("input", { type: "email", required: true, name: "email", autoComplete: "email", placeholder: "siz@sirketiniz.com", maxLength: 150 })] }), (0, jsx_runtime_1.jsxs)("label", { children: ["Nas\u0131l yard\u0131mc\u0131 olabiliriz?", (0, jsx_runtime_1.jsx)("select", { value: service, onChange: e => setService(e.target.value), name: "service", children: services.map(s => (0, jsx_runtime_1.jsx)("option", { children: s.title }, s.title)) })] }), (0, jsx_runtime_1.jsxs)("label", { children: ["Projenizi anlat\u0131n ", (0, jsx_runtime_1.jsx)("span", { children: "*" }), (0, jsx_runtime_1.jsx)("textarea", { required: true, name: "message", rows: 4, minLength: 10, maxLength: 2500, placeholder: "Akl\u0131n\u0131zdaki fikir, \u00E7ekim yeri ve hedefledi\u011Finiz tarih\u2026" })] }), (0, jsx_runtime_1.jsxs)("button", { type: "submit", className: "button red", children: ["WhatsApp\u2019ta devam et ", (0, jsx_runtime_1.jsx)(message_circle_js_1.default, { size: 20 })] }), (0, jsx_runtime_1.jsx)("p", { className: "form-note", children: "Form, bilgilerinizi WhatsApp mesaj\u0131na d\u00F6n\u00FC\u015Ft\u00FCr\u00FCr. Mesaj\u0131 a\u00E7\u0131lan pencerede siz g\u00F6nderirsiniz; bu sayfada kaydedilmez." }), prepared && (0, jsx_runtime_1.jsxs)("p", { role: "status", className: "form-status", children: ["Mesaj\u0131n\u0131z haz\u0131rland\u0131. A\u00E7\u0131lan WhatsApp penceresinde kontrol edip g\u00F6nderebilirsiniz. Pencere a\u00E7\u0131lmad\u0131ysa ", (0, jsx_runtime_1.jsx)("a", { href: messageUrl, target: "_blank", rel: "noreferrer", children: "haz\u0131rlanan mesaj\u0131 yeniden a\u00E7\u0131n" }), "."] })] })] }) })] }), (0, jsx_runtime_1.jsxs)("footer", { children: [(0, jsx_runtime_1.jsxs)("a", { className: "footer-word", href: "#home", children: ["GAMMA", (0, jsx_runtime_1.jsx)("span", { children: "\u2197" })] }), (0, jsx_runtime_1.jsxs)("div", { className: "footer-bottom", children: [(0, jsx_runtime_1.jsx)("span", { children: "\u00A9 2026 Gamma Productions" }), (0, jsx_runtime_1.jsx)("span", { children: "Sinematografi & Video Prod\u00FCksiyon \u00B7 Elaz\u0131\u011F" }), (0, jsx_runtime_1.jsx)("a", { href: "#home", children: "Ba\u015Fa d\u00F6n \u2191" })] })] }), (0, jsx_runtime_1.jsxs)("a", { className: "floating-contact", href: "https://wa.me/905393231002", target: "_blank", rel: "noreferrer", "aria-label": "Gamma Productions ile WhatsApp'ta ileti\u015Fime ge\u00E7", children: [(0, jsx_runtime_1.jsx)(message_circle_js_1.default, { size: 22 }), (0, jsx_runtime_1.jsx)("span", { children: "Bir proje konu\u015Fal\u0131m" })] })] });
 }
 
 },function(module,exports,__r){/**
@@ -94,6 +80,178 @@ for(var m=0;m<f;m++)g[m]=arguments[m+2];d.children=g}return{$$typeof:l,type:a.ty
 exports.forwardRef=function(a){return{$$typeof:v,render:a}};exports.isValidElement=O;exports.lazy=function(a){return{$$typeof:y,_payload:{_status:-1,_result:a},_init:T}};exports.memo=function(a,b){return{$$typeof:x,type:a,compare:void 0===b?null:b}};exports.startTransition=function(a){var b=V.transition;V.transition={};try{a()}finally{V.transition=b}};exports.unstable_act=X;exports.useCallback=function(a,b){return U.current.useCallback(a,b)};exports.useContext=function(a){return U.current.useContext(a)};
 exports.useDebugValue=function(){};exports.useDeferredValue=function(a){return U.current.useDeferredValue(a)};exports.useEffect=function(a,b){return U.current.useEffect(a,b)};exports.useId=function(){return U.current.useId()};exports.useImperativeHandle=function(a,b,e){return U.current.useImperativeHandle(a,b,e)};exports.useInsertionEffect=function(a,b){return U.current.useInsertionEffect(a,b)};exports.useLayoutEffect=function(a,b){return U.current.useLayoutEffect(a,b)};
 exports.useMemo=function(a,b){return U.current.useMemo(a,b)};exports.useReducer=function(a,b,e){return U.current.useReducer(a,b,e)};exports.useRef=function(a){return U.current.useRef(a)};exports.useState=function(a){return U.current.useState(a)};exports.useSyncExternalStore=function(a,b,e){return U.current.useSyncExternalStore(a,b,e)};exports.useTransition=function(){return U.current.useTransition()};exports.version="18.3.1";
+
+},function(module,exports,__r){"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = ProcessGallery;
+const jsx_runtime_1 = __r(1);
+const react_1 = __r(2);
+const arrow_up_right_js_1 = __r(4);
+const arrow_left_js_1 = __r(7);
+const arrow_right_js_1 = __r(8);
+const x_js_1 = __r(9);
+const phases = [
+    { name: 'Pre-production', subtitle: 'Hikâyeyi tasarla.', intro: 'İyi bir film, kamera açılmadan başlar.', image: 'planning.webp', alt: 'Storyboard ve çekim planıyla hazırlanan prodüksiyon masası', steps: [
+            { title: 'Brief & fikir', text: 'Önce sizi dinliyoruz. Hedefinizi, izleyicinizi ve vermek istediğiniz mesajı netleştirerek yaratıcı yönü belirliyoruz.', image: 'planning.webp', detail: 'Hedef · İzleyici · Yaratıcı yaklaşım' },
+            { title: 'Senaryo & storyboard', text: 'Fikri sahnelere dönüştürüyoruz. Hikâyenin akışını, kadrajları ve geçişleri çekimden önce görünür kılıyoruz.', image: 'planning.webp', detail: 'Hikâye akışı · Kadraj · Görsel dil' },
+            { title: 'Mekân & ekip', text: 'Hikâyeye uygun mekânı, çekim ekibini ve ihtiyaç duyulan ekipmanı birlikte planlıyoruz.', image: 'aerial.webp', detail: 'Keşif · Ekip · Teknik ihtiyaçlar' },
+            { title: 'Çekim planı', text: 'Sahneleri, zamanlamayı ve hazırlıkları tek bir planda topluyoruz. Set günü herkes neye odaklanacağını biliyor.', image: 'planning.webp', detail: 'Çekim listesi · Takvim · Hazırlık' }
+        ] },
+    { name: 'Production', subtitle: 'Hikâyeyi yaşat.', intro: 'Planı ışığa, sese ve harekete dönüştürüyoruz.', image: 'cinema.jpg', alt: 'Profesyonel sinema kamerası ve çekim ekranı', steps: [
+            { title: 'Kamera & kadraj', text: 'Hikâyenin duygusuna uygun lens, açı ve kompozisyonu seçiyoruz. Her plan anlatmak istediğimiz fikre hizmet ediyor.', image: 'cinema.jpg', detail: 'Kompozisyon · Lens · Görüntü' },
+            { title: 'Işık & atmosfer', text: 'Işığın yönü, rengi ve gölgesiyle sahnenin karakterini kuruyoruz. Görsel bütünlüğü çekim boyunca koruyoruz.', image: 'light.webp', detail: 'Işık tasarımı · Kontrast · Atmosfer', object: true },
+            { title: 'Ses & performans', text: 'Diyalogları ve ortam sesini özenle kaydediyoruz. Kamera önündeki anlatımın doğal ve güçlü olmasına odaklanıyoruz.', image: 'sound.webp', detail: 'Diyalog · Ortam sesi · Yönlendirme', object: true },
+            { title: 'Hareket & takip', text: 'Gimbal ve projeye uygun hava çekimleriyle bakış açısını genişletiyoruz. Hareketin hızını hikâyenin ritmi belirliyor.', image: 'rs4-pro.webp', detail: 'DJI RS 4 Pro · Takip · Akıcı planlar', object: true }
+        ] },
+    { name: 'Post-production', subtitle: 'Hikâyeyi tamamla.', intro: 'Görüntüler birleşir. Filmin duygusu ortaya çıkar.', image: 'editing.webp', alt: 'Kurgu ekranları ve renk düzenleme konsolu bulunan stüdyo', steps: [
+            { title: 'Seçim & kurgu', text: 'En güçlü anları seçiyor, filmin akışını kuruyoruz. Planların süresi ve geçişler, hikâyenin temposunu şekillendiriyor.', image: 'editing.webp', detail: 'Plan seçimi · Akış · Ritim' },
+            { title: 'Renk & görsel bütünlük', text: 'Planlar arasında renk ve ışık dengesini kuruyoruz. Filmin karakterine uygun tonlarla atmosferi tamamlıyoruz.', image: 'product.webp', detail: 'Renk dengesi · Color grading · Doku' },
+            { title: 'Ses tasarımı & miks', text: 'Diyalog, müzik ve efektleri dengeliyoruz. Görünmeyen detaylarla izleyicinin filmle kurduğu bağı güçlendiriyoruz.', image: 'editing.webp', detail: 'Müzik · Efekt · Ses dengesi' },
+            { title: 'Son kontrol & teslim', text: 'Görüntü ve sesi birlikte kontrol ediyoruz. Filmi yayınlanacağı mecraya uygun oran, çözünürlük ve formatta hazırlıyoruz.', image: 'aerial.webp', detail: 'Kontrol · Format · Yayına hazırlık' }
+        ] }
+];
+function ProcessGallery() {
+    const [selected, setSelected] = (0, react_1.useState)(null), [step, setStep] = (0, react_1.useState)(0);
+    const modal = (0, react_1.useRef)(null), rail = (0, react_1.useRef)(null), opener = (0, react_1.useRef)(null);
+    (0, react_1.useEffect)(() => { if (selected === null)
+        return; const d = modal.current; d.showModal(); const old = document.body.style.overflow; document.body.style.overflow = 'hidden'; return () => { document.body.style.overflow = old; opener.current?.focus(); }; }, [selected]);
+    const close = () => { modal.current?.close(); setSelected(null); };
+    const move = (index) => { const r = rail.current; if (!r)
+        return; const target = r.children[index]; if (target)
+        r.scrollTo({ left: target.offsetLeft, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.dataset.motion === 'off' ? 'auto' : 'smooth' }); };
+    const current = selected === null ? null : phases[selected];
+    return (0, jsx_runtime_1.jsxs)("section", { id: "portfolio", className: "section process-section", children: [(0, jsx_runtime_1.jsxs)("div", { className: "section-heading", children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("p", { className: "eyebrow", children: "01 / G\u00D6RSEL D\u00DCNYAMIZ" }), (0, jsx_runtime_1.jsxs)("h2", { children: ["Fikirden filme.", (0, jsx_runtime_1.jsx)("br", {}), (0, jsx_runtime_1.jsx)("span", { children: "Her a\u015Famada birlikte." })] })] }), (0, jsx_runtime_1.jsxs)("p", { children: ["\u00DC\u00E7 b\u00F6l\u00FCm. Tek bir yarat\u0131c\u0131 bak\u0131\u015F.", (0, jsx_runtime_1.jsx)("br", {}), "Bir ba\u015Fl\u0131k se\u00E7in, yap\u0131m s\u00FCrecimizi ke\u015Ffedin."] })] }), (0, jsx_runtime_1.jsx)("div", { className: "process-grid", children: phases.map((phase, i) => (0, jsx_runtime_1.jsxs)("button", { className: "process-card", onClick: e => { opener.current = e.currentTarget; setStep(0); setSelected(i); }, "aria-haspopup": "dialog", children: [(0, jsx_runtime_1.jsx)("img", { src: '/images/' + phase.image, alt: phase.alt, width: "1200", height: "800", loading: "lazy" }), (0, jsx_runtime_1.jsx)("span", { className: "process-card-shade" }), (0, jsx_runtime_1.jsxs)("span", { className: "process-number", children: ["0", i + 1, " / YAPIM S\u00DCREC\u0130"] }), (0, jsx_runtime_1.jsxs)("span", { className: "process-glass", children: [(0, jsx_runtime_1.jsx)("span", { className: "process-title", children: phase.name }), (0, jsx_runtime_1.jsx)("strong", { children: phase.subtitle }), (0, jsx_runtime_1.jsxs)("span", { className: "process-open", children: ["4 a\u015Famay\u0131 ke\u015Ffet ", (0, jsx_runtime_1.jsx)(arrow_up_right_js_1.default, { size: 20 })] })] })] }, phase.name)) }), (0, jsx_runtime_1.jsx)("p", { className: "sample-note", children: "G\u00F6rseller yap\u0131m s\u00FCrecini temsil eder; haz\u0131rl\u0131k ve kurgu g\u00F6rselleri yapay zek\u00E2 ile olu\u015Fturulmu\u015Ftur." }), (0, jsx_runtime_1.jsx)("dialog", { ref: modal, className: "process-dialog", "aria-labelledby": "process-dialog-title", onCancel: e => { e.preventDefault(); close(); }, onClick: e => { if (e.target === modal.current)
+                    close(); }, children: current && (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsxs)("div", { className: "process-dialog-head", children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsxs)("p", { className: "eyebrow", children: ["YAPIM S\u00DCREC\u0130 / 0", selected + 1] }), (0, jsx_runtime_1.jsx)("h2", { id: "process-dialog-title", children: current.name }), (0, jsx_runtime_1.jsx)("p", { children: current.intro })] }), (0, jsx_runtime_1.jsx)("button", { autoFocus: true, className: "process-close", "aria-label": "S\u00FCre\u00E7 penceresini kapat", onClick: close, children: (0, jsx_runtime_1.jsx)(x_js_1.default, { size: 22 }) })] }), (0, jsx_runtime_1.jsx)("div", { ref: rail, className: "process-rail", tabIndex: 0, "aria-label": "Yap\u0131m a\u015Famalar\u0131; sa\u011F ve sol oklarla gezin", onKeyDown: e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                                e.preventDefault();
+                                move(Math.max(0, Math.min(3, step + (e.key === 'ArrowRight' ? 1 : -1))));
+                            } }, onScroll: e => { const r = e.currentTarget; const width = r.children[0]?.offsetWidth || 1; setStep(Math.max(0, Math.min(3, Math.round(r.scrollLeft / width)))); }, children: current.steps.map((s, i) => (0, jsx_runtime_1.jsxs)("article", { className: "process-slide", "aria-label": (i + 1) + ' / 4: ' + s.title, children: [(0, jsx_runtime_1.jsxs)("div", { className: 'process-slide-image' + ('object' in s ? ' is-object' : ''), children: [(0, jsx_runtime_1.jsx)("img", { src: '/images/' + s.image, alt: s.title + ' — temsili prodüksiyon görseli', width: "1200", height: "800", loading: i === 0 ? 'eager' : 'lazy' }), (0, jsx_runtime_1.jsxs)("span", { children: ["0", i + 1, " / 04"] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "process-slide-copy", children: [(0, jsx_runtime_1.jsxs)("span", { className: "process-step-label", children: [current.name, " / 0", i + 1] }), (0, jsx_runtime_1.jsx)("h3", { children: s.title }), (0, jsx_runtime_1.jsx)("p", { children: s.text }), (0, jsx_runtime_1.jsx)("span", { className: "process-detail", children: s.detail })] })] }, s.title)) }), (0, jsx_runtime_1.jsxs)("div", { className: "process-controls", children: [(0, jsx_runtime_1.jsx)("div", { className: "process-dots", "aria-label": "A\u015Fama se\u00E7imi", children: current.steps.map((s, i) => (0, jsx_runtime_1.jsx)("button", { "aria-label": s.title, "aria-current": step === i ? 'step' : undefined, onClick: () => move(i), children: (0, jsx_runtime_1.jsx)("span", {}) }, s.title)) }), (0, jsx_runtime_1.jsxs)("span", { className: "process-status", "aria-live": "polite", children: [step + 1, " / 4"] }), (0, jsx_runtime_1.jsx)("button", { className: "process-arrow", "aria-label": "\u00D6nceki a\u015Fama", disabled: step === 0, onClick: () => move(step - 1), children: (0, jsx_runtime_1.jsx)(arrow_left_js_1.default, { size: 20 }) }), (0, jsx_runtime_1.jsx)("button", { className: "process-arrow", "aria-label": "Sonraki a\u015Fama", disabled: step === 3, onClick: () => move(step + 1), children: (0, jsx_runtime_1.jsx)(arrow_right_js_1.default, { size: 20 }) })] })] }) })] });
+}
+
+},function(module,exports,__r){"use strict";
+/**
+ * @license lucide-react v0.344.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = void 0;
+const createLucideIcon_js_1 = __r(5);
+const ArrowUpRight = (0, createLucideIcon_js_1.default)("ArrowUpRight", [
+    ["path", { d: "M7 7h10v10", key: "1tivn9" }],
+    ["path", { d: "M7 17 17 7", key: "1vkiza" }]
+]);
+exports.default = ArrowUpRight;
+//# sourceMappingURL=arrow-up-right.js.map
+
+},function(module,exports,__r){"use strict";
+/**
+ * @license lucide-react v0.344.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.toKebabCase = exports.default = void 0;
+const react_1 = __r(2);
+const defaultAttributes_js_1 = __r(6);
+const toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase().trim();
+exports.toKebabCase = toKebabCase;
+const createLucideIcon = (iconName, iconNode) => {
+    const Component = (0, react_1.forwardRef)(({ color = "currentColor", size = 24, strokeWidth = 2, absoluteStrokeWidth, className = "", children, ...rest }, ref) => {
+        return (0, react_1.createElement)("svg", {
+            ref,
+            ...defaultAttributes_js_1.default,
+            width: size,
+            height: size,
+            stroke: color,
+            strokeWidth: absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size) : strokeWidth,
+            className: ["lucide", `lucide-${toKebabCase(iconName)}`, className].join(" "),
+            ...rest
+        }, [
+            ...iconNode.map(([tag, attrs]) => (0, react_1.createElement)(tag, attrs)),
+            ...Array.isArray(children) ? children : [children]
+        ]);
+    });
+    Component.displayName = `${iconName}`;
+    return Component;
+};
+exports.default = createLucideIcon;
+//# sourceMappingURL=createLucideIcon.js.map
+
+},function(module,exports,__r){"use strict";
+/**
+ * @license lucide-react v0.344.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = void 0;
+var defaultAttributes = {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 2,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+};
+exports.default = defaultAttributes;
+//# sourceMappingURL=defaultAttributes.js.map
+
+},function(module,exports,__r){"use strict";
+/**
+ * @license lucide-react v0.344.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = void 0;
+const createLucideIcon_js_1 = __r(5);
+const ArrowLeft = (0, createLucideIcon_js_1.default)("ArrowLeft", [
+    ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
+    ["path", { d: "M19 12H5", key: "x3x0zl" }]
+]);
+exports.default = ArrowLeft;
+//# sourceMappingURL=arrow-left.js.map
+
+},function(module,exports,__r){"use strict";
+/**
+ * @license lucide-react v0.344.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = void 0;
+const createLucideIcon_js_1 = __r(5);
+const ArrowRight = (0, createLucideIcon_js_1.default)("ArrowRight", [
+    ["path", { d: "M5 12h14", key: "1ays0h" }],
+    ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
+]);
+exports.default = ArrowRight;
+//# sourceMappingURL=arrow-right.js.map
+
+},function(module,exports,__r){"use strict";
+/**
+ * @license lucide-react v0.344.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = void 0;
+const createLucideIcon_js_1 = __r(5);
+const X = (0, createLucideIcon_js_1.default)("X", [
+    ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
+    ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
+]);
+exports.default = X;
+//# sourceMappingURL=x.js.map
 
 },function(module,exports,__r){"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -213,82 +371,7 @@ function Equipment() {
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = void 0;
-const createLucideIcon_js_1 = __r(7);
-const ArrowUpRight = (0, createLucideIcon_js_1.default)("ArrowUpRight", [
-    ["path", { d: "M7 7h10v10", key: "1tivn9" }],
-    ["path", { d: "M7 17 17 7", key: "1vkiza" }]
-]);
-exports.default = ArrowUpRight;
-//# sourceMappingURL=arrow-up-right.js.map
-
-},function(module,exports,__r){"use strict";
-/**
- * @license lucide-react v0.344.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.toKebabCase = exports.default = void 0;
-const react_1 = __r(2);
-const defaultAttributes_js_1 = __r(8);
-const toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase().trim();
-exports.toKebabCase = toKebabCase;
-const createLucideIcon = (iconName, iconNode) => {
-    const Component = (0, react_1.forwardRef)(({ color = "currentColor", size = 24, strokeWidth = 2, absoluteStrokeWidth, className = "", children, ...rest }, ref) => {
-        return (0, react_1.createElement)("svg", {
-            ref,
-            ...defaultAttributes_js_1.default,
-            width: size,
-            height: size,
-            stroke: color,
-            strokeWidth: absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size) : strokeWidth,
-            className: ["lucide", `lucide-${toKebabCase(iconName)}`, className].join(" "),
-            ...rest
-        }, [
-            ...iconNode.map(([tag, attrs]) => (0, react_1.createElement)(tag, attrs)),
-            ...Array.isArray(children) ? children : [children]
-        ]);
-    });
-    Component.displayName = `${iconName}`;
-    return Component;
-};
-exports.default = createLucideIcon;
-//# sourceMappingURL=createLucideIcon.js.map
-
-},function(module,exports,__r){"use strict";
-/**
- * @license lucide-react v0.344.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = void 0;
-var defaultAttributes = {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 24,
-    height: 24,
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 2,
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-};
-exports.default = defaultAttributes;
-//# sourceMappingURL=defaultAttributes.js.map
-
-},function(module,exports,__r){"use strict";
-/**
- * @license lucide-react v0.344.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = void 0;
-const createLucideIcon_js_1 = __r(7);
+const createLucideIcon_js_1 = __r(5);
 const ArrowDown = (0, createLucideIcon_js_1.default)("ArrowDown", [
     ["path", { d: "M12 5v14", key: "s699le" }],
     ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
@@ -305,7 +388,7 @@ exports.default = ArrowDown;
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = void 0;
-const createLucideIcon_js_1 = __r(7);
+const createLucideIcon_js_1 = __r(5);
 const Menu = (0, createLucideIcon_js_1.default)("Menu", [
     ["line", { x1: "4", x2: "20", y1: "12", y2: "12", key: "1e0a9i" }],
     ["line", { x1: "4", x2: "20", y1: "6", y2: "6", key: "1owob3" }],
@@ -323,24 +406,7 @@ exports.default = Menu;
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = void 0;
-const createLucideIcon_js_1 = __r(7);
-const X = (0, createLucideIcon_js_1.default)("X", [
-    ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
-    ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
-]);
-exports.default = X;
-//# sourceMappingURL=x.js.map
-
-},function(module,exports,__r){"use strict";
-/**
- * @license lucide-react v0.344.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = void 0;
-const createLucideIcon_js_1 = __r(7);
+const createLucideIcon_js_1 = __r(5);
 const Plus = (0, createLucideIcon_js_1.default)("Plus", [
     ["path", { d: "M5 12h14", key: "1ays0h" }],
     ["path", { d: "M12 5v14", key: "s699le" }]
@@ -357,7 +423,7 @@ exports.default = Plus;
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = void 0;
-const createLucideIcon_js_1 = __r(7);
+const createLucideIcon_js_1 = __r(5);
 const MessageCircle = (0, createLucideIcon_js_1.default)("MessageCircle", [
     ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
 ]);
@@ -373,7 +439,7 @@ exports.default = MessageCircle;
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = void 0;
-const createLucideIcon_js_1 = __r(7);
+const createLucideIcon_js_1 = __r(5);
 const Phone = (0, createLucideIcon_js_1.default)("Phone", [
     [
         "path",
@@ -395,7 +461,7 @@ exports.default = Phone;
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = void 0;
-const createLucideIcon_js_1 = __r(7);
+const createLucideIcon_js_1 = __r(5);
 const Mail = (0, createLucideIcon_js_1.default)("Mail", [
     ["rect", { width: "20", height: "16", x: "2", y: "4", rx: "2", key: "18n3k1" }],
     ["path", { d: "m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7", key: "1ocrg3" }]
@@ -412,7 +478,7 @@ exports.default = Mail;
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = void 0;
-const createLucideIcon_js_1 = __r(7);
+const createLucideIcon_js_1 = __r(5);
 const Instagram = (0, createLucideIcon_js_1.default)("Instagram", [
     ["rect", { width: "20", height: "20", x: "2", y: "2", rx: "5", ry: "5", key: "2e1cvw" }],
     ["path", { d: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z", key: "9exkf1" }],
@@ -425,14 +491,14 @@ exports.default = Instagram;
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = __r(1);
 const react_1 = __r(2);
-const client_1 = __r(18);
+const client_1 = __r(21);
 const App_tsx_1 = __r(0);
 {};
 (0, client_1.hydrateRoot)(document.getElementById('root'), (0, jsx_runtime_1.jsx)(react_1.StrictMode, { children: (0, jsx_runtime_1.jsx)(App_tsx_1.default, {}) }));
 
 },function(module,exports,__r){'use strict';
 
-var m = __r(19);
+var m = __r(22);
 if (process.env.NODE_ENV === 'production') {
   exports.createRoot = m.createRoot;
   exports.hydrateRoot = m.hydrateRoot;
@@ -468,7 +534,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-'use strict';var aa=__r(2),ca=__r(20);function p(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}var da=new Set,ea={};function fa(a,b){ha(a,b);ha(a+"Capture",b)}
+'use strict';var aa=__r(2),ca=__r(23);function p(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}var da=new Set,ea={};function fa(a,b){ha(a,b);ha(a+"Capture",b)}
 function ha(a,b){ea[a]=b;for(a=0;a<b.length;a++)da.add(b[a])}
 var ia=!("undefined"===typeof window||"undefined"===typeof window.document||"undefined"===typeof window.document.createElement),ja=Object.prototype.hasOwnProperty,ka=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,la=
 {},ma={};function oa(a){if(ja.call(ma,a))return!0;if(ja.call(la,a))return!1;if(ka.test(a))return ma[a]=!0;la[a]=!0;return!1}function pa(a,b,c,d){if(null!==c&&0===c.type)return!1;switch(typeof b){case "function":case "symbol":return!0;case "boolean":if(d)return!1;if(null!==c)return!c.acceptsBooleans;a=a.toLowerCase().slice(0,5);return"data-"!==a&&"aria-"!==a;default:return!1}}
@@ -799,4 +865,4 @@ exports.unstable_requestPaint=function(){};exports.unstable_runWithPriority=func
 exports.unstable_scheduleCallback=function(a,b,c){var d=exports.unstable_now();"object"===typeof c&&null!==c?(c=c.delay,c="number"===typeof c&&0<c?d+c:d):c=d;switch(a){case 1:var e=-1;break;case 2:e=250;break;case 5:e=1073741823;break;case 4:e=1E4;break;default:e=5E3}e=c+e;a={id:u++,callback:b,priorityLevel:a,startTime:c,expirationTime:e,sortIndex:-1};c>d?(a.sortIndex=c,f(t,a),null===h(r)&&a===h(t)&&(B?(E(L),L=-1):B=!0,K(H,c-d))):(a.sortIndex=e,f(r,a),A||z||(A=!0,I(J)));return a};
 exports.unstable_shouldYield=M;exports.unstable_wrapCallback=function(a){var b=y;return function(){var c=y;y=b;try{return a.apply(this,arguments)}finally{y=c}}};
 
-}];const __c={};function __r(i){if(__c[i])return __c[i].exports;const m=__c[i]={exports:{}};__m[i](m,m.exports,__r);return m.exports;};__r(17);})();
+}];const __c={};function __r(i){if(__c[i])return __c[i].exports;const m=__c[i]={exports:{}};__m[i](m,m.exports,__r);return m.exports;};__r(20);})();
