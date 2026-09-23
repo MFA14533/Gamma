@@ -19,4 +19,4 @@ const styles=await postcss([tailwind({content:['./src/App.tsx']})]).process(fs.r
 const template=fs.readFileSync('index.html','utf8').replace('<div id="root"></div>',`<div id="root">${html}</div>`).replace('<script type="module" src="/src/main.tsx"></script>','<link rel="stylesheet" href="/assets/style.css"/><script defer src="/assets/app.js"></script>');fs.writeFileSync('dist/index.html',template);new vm.Script(fs.readFileSync('dist/assets/app.js','utf8'));console.log('Built and syntax checked. Pre-rendered HTML:',html.length,'characters.');
 
 
-await import('./build-service-pages.mjs');
+
