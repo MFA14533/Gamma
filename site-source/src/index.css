@@ -128,3 +128,30 @@ html[data-motion=off]{scroll-behavior:auto}html[data-motion=off] *,html[data-mot
 @media(max-width:1100px){.process-grid{gap:14px}.process-card{padding:14px;min-height:430px}.process-glass{padding:22px 16px}.process-title{font-size:25px}}
 @media(max-width:760px){.process-grid{grid-template-columns:1fr;gap:22px}.process-card{min-height:440px;padding:20px}.process-title{font-size:32px}.process-dialog{width:calc(100% - 20px);max-height:calc(100svh - 24px);border-radius:22px}.process-dialog-head{padding:22px 20px 18px}.process-dialog-head .eyebrow{font-size:11px;letter-spacing:1px}.process-dialog-head p:last-child{font-size:14px}.process-slide{grid-template-columns:1fr;gap:20px;padding:0 20px;align-content:start}.process-slide-image{height:clamp(160px,26svh,240px)}.process-slide-copy h3{font-size:27px;margin:10px 0 12px}.process-slide-copy p{font-size:16px;line-height:1.65;margin-bottom:16px}.process-detail{padding-top:12px}.process-controls{padding:16px 20px;position:sticky;bottom:0;background:#171d27f2;border-top:1px solid #ffffff10;margin-top:20px}}
 @media(prefers-reduced-motion:reduce){.process-card,.process-card>img,.process-dialog[open],.process-dots span{transition:none;animation:none}.process-rail{scroll-behavior:auto}}
+
+/* Fifth chapter: a complete edit-suite scene, with readable service/tool pairings. */
+@media(min-width:761px){.equipment:not(.linear){height:430svh}.scene-footer{gap:24px}.scene-nav{gap:clamp(12px,2vw,30px)}.scene-nav button{min-width:0}.scene-nav button:last-child{white-space:nowrap}.scene-nav button span{margin-right:9px}}
+.scene-4{grid-template-columns:38% 62%;gap:3%;padding-right:10%}
+.scene-4 .equipment-copy h2{font-size:clamp(56px,5.7vw,88px);line-height:1.05}
+.scene-4 .scene-description{max-width:345px;line-height:1.75;margin:20px 0}
+.scene-4 .scene-spec{font-size:12px;letter-spacing:.02em}
+.post-method{font-size:14px;line-height:1.65;color:#aeb2bc;max-width:340px;margin:16px 0 0}
+.post-workspace{min-width:0;align-self:center;visibility:inherit;transform:translate3d(calc(var(--distance,0)*42px),0,0)}
+.post-figure{margin:0;position:relative;border:1px solid #ffffff21;border-radius:14px;overflow:hidden;background:#15191d}
+.post-image{display:block;width:100%;height:clamp(160px,26svh,290px);object-fit:cover;object-position:center 52%;filter:blur(var(--focus-blur,0px));transform:scale(calc(1 + var(--distance,0)*.025))}
+.post-figure figcaption{position:absolute;inset:auto 0 0;padding:24px 16px 12px;background:linear-gradient(transparent,#06090de8);font:12px/1.5 'IBM Plex Mono',monospace;letter-spacing:.04em;color:#d0d6df}
+.post-toolkit{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin:16px 0 0;opacity:var(--copy-alpha,1)}
+.post-toolkit>div{border-top:1px solid #ffffff23;padding-top:10px;min-width:0}
+.post-toolkit dt{font-size:16px;font-weight:500;color:#fafafa;line-height:1.4}
+.post-toolkit dd{margin:5px 0 0;font-size:14px;line-height:1.55;color:#b4b9c4}
+.post-toolkit dd span{display:block;font-size:14px;line-height:1.5;color:#e0c0b9;margin-top:5px}
+.equipment-panel[aria-hidden="true"] .post-toolkit{visibility:hidden}
+.equipment.linear .post-workspace{transform:none;width:100%;max-width:740px;justify-self:center}
+.equipment.linear .post-toolkit{opacity:1;visibility:visible}
+.equipment.linear .post-image{filter:none;transform:none;height:auto;aspect-ratio:3/2}
+.equipment.linear .scene-4{gap:32px;padding-block:45px;grid-template-columns:38% 1fr}
+@media(min-width:761px) and (max-height:800px){.scene-4 .equipment-copy h2{font-size:60px}.scene-4 .scene-label{margin-bottom:12px}.scene-4 .scene-description{margin:14px 0}.post-image{height:170px}.post-toolkit{gap:10px 18px;margin-top:12px}.post-toolkit dd{font-size:14px;line-height:1.4}.post-toolkit dd span{font-size:14px;margin-top:3px}.post-method{margin-top:12px}}
+@media(max-width:1000px){.scene-footer{left:5%;right:5%;gap:12px}.scene-nav{gap:14px}.scene-nav button{font-size:12px}.scene-nav button span{margin-right:6px}.scene-skip{white-space:nowrap}}
+@media(max-width:760px){.equipment.linear .scene-4,.scene-4{flex-direction:column;gap:25px;padding:30px 0 45px}.scene-4 .equipment-copy h2{font-size:clamp(56px,13vw,72px)}.scene-4 .scene-description,.post-method{max-width:none}.scene-4 .scene-label{margin-top:0}.post-toolkit{gap:20px 16px}.post-figure figcaption{font-size:12px}.equipment.linear .post-image{aspect-ratio:3/2}.post-method{font-size:16px}}
+@media(max-width:420px){.post-toolkit{grid-template-columns:1fr}.post-toolkit dd span{margin-top:5px}}
+@media(prefers-reduced-motion:reduce){.post-workspace,.post-image{transform:none!important;filter:none!important}}
