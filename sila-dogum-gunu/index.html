@@ -84,8 +84,8 @@
       border:1px solid var(--line); background:linear-gradient(145deg,#201018,#0f0b10);
       box-shadow:var(--shadow);
     }
-    .photo-card.tall{min-height:620px}
-    .photo-card img{width:100%; height:100%; position:absolute; inset:0; object-fit:cover; filter:saturate(.9) contrast(1.02); transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+    .photo-card.tall{aspect-ratio:2/3;min-height:0}.photo-card.portrait{aspect-ratio:2/3;min-height:0}.photo-card.landscape{aspect-ratio:3/2;min-height:0}
+    .photo-card img{width:100%;height:100%;position:absolute;inset:0;object-fit:contain;object-position:center;background:#120c11;filter:none;display:block;transition:transform .8s ease}
     .photo-card:hover img{transform:scale(1.03)}
     .photo-card::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 50%,rgba(9,7,13,.82)); pointer-events:none}
     .photo-label{position:absolute; z-index:2; left:26px; bottom:24px; right:26px}
@@ -169,7 +169,7 @@
       .chapter{grid-template-columns:1fr; gap:30px}
       .big-number{justify-self:start}
       .photo-grid{grid-template-columns:1fr}
-      .photo-card,.photo-card.tall{min-height:470px}
+      .photo-card,.photo-card.tall,.photo-card.portrait,.photo-card.landscape{min-height:0}
       .letter-section{padding-top:100px}
       .envelope-stage{min-height:320px}
       .paper.open{margin-top:-55px}
@@ -213,18 +213,18 @@
       <div class="photo-grid">
         <article class="photo-card tall reveal">
           <div class="placeholder"><span><b>Fotoğraf 01</b><br>assets/photo-1.jpg<br><br>En sevdiğiniz birlikte çekilmiş kare.</span></div>
-          <img src="assets/photo-1.jpg" loading="lazy">
+          <img src="assets/photo-1.jpg?v=6" width="420" height="630" loading="eager" fetchpriority="high" decoding="async" alt="Birlikte en sevdiğimiz anlardan biri">
           <div class="photo-label"><strong>İlk bakış gibi.</strong><span>Bazı anlar hiç eskimiyor.</span></div>
         </article>
         <div style="display:grid; gap:24px">
-          <article class="photo-card reveal">
+          <article class="photo-card portrait reveal">
             <div class="placeholder"><span><b>Fotoğraf 02</b><br>assets/photo-2.jpg<br><br>Prensesimin sevdiğin bir portresi.</span></div>
-            <img src="assets/photo-2.jpg" loading="lazy">
+            <img src="assets/photo-2.jpg?v=6" width="420" height="630" loading="lazy" decoding="async" alt="Prensesimin bir portresi">
             <div class="photo-label"><strong>Benim en güzel manzaram.</strong><span>Bir gülüş, bütün günü değiştirebilir.</span></div>
           </article>
-          <article class="photo-card reveal">
+          <article class="photo-card landscape reveal">
             <div class="placeholder"><span><b>Fotoğraf 03</b><br>assets/photo-3.jpg<br><br>Birlikte unutamadığınız bir gün.</span></div>
-            <img src="assets/photo-3.jpg" loading="lazy">
+            <img src="assets/photo-3.jpg?v=6" width="420" height="280" loading="lazy" decoding="async" alt="Birlikte unutamadığımız bir gün">
             <div class="photo-label"><strong>Yine biz.</strong><span>En sevdiğim yer: yanın.</span></div>
           </article>
         </div>
