@@ -85,7 +85,7 @@
       box-shadow:var(--shadow);
     }
     .photo-card.tall{aspect-ratio:2/3;min-height:0}.photo-card.portrait{aspect-ratio:2/3;min-height:0}.photo-card.landscape{aspect-ratio:3/2;min-height:0}
-    .photo-card img{width:100%;height:100%;position:absolute;inset:0;object-fit:contain;object-position:center;background:#120c11;filter:none;display:block;transition:transform .8s ease}
+    .photo-card img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center;background:#120c11;filter:none;display:block;image-rendering:auto;transition:transform .8s ease}
     .photo-card:hover img{transform:scale(1.03)}
     .photo-card::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 50%,rgba(9,7,13,.82)); pointer-events:none}
     .photo-label{position:absolute; z-index:2; left:26px; bottom:24px; right:26px}
@@ -187,7 +187,7 @@
   <main>
     <section class="hero">
       <div class="reveal show">
-        <div class="eyebrow">01 · 10 · sonsuza doğru</div>
+        <div class="eyebrow">02 · 10 · 2003 · sonsuza doğru</div>
         <h1 class="display">İyi ki doğdun <span class="name">Prensesim.</span></h1>
         <p>Bu sayfa bir doğum günü mesajından biraz daha fazlası. İki yılın, binlerce küçük anın ve her gün biraz daha büyüyen “biz”in minicik bir filmi.</p>
       </div>
@@ -213,18 +213,18 @@
       <div class="photo-grid">
         <article class="photo-card tall reveal">
           <div class="placeholder"><span><b>Fotoğraf 01</b><br>assets/photo-1.jpg<br><br>En sevdiğiniz birlikte çekilmiş kare.</span></div>
-          <img src="assets/photo-1.jpg?v=6" width="420" height="630" loading="eager" fetchpriority="high" decoding="async" alt="Birlikte en sevdiğimiz anlardan biri">
+          <img src="https://lh3.googleusercontent.com/d/1UjR4eYVX50eWVO1a_oPvjf33RLwvP9LR=w2400" width="420" height="630" loading="eager" fetchpriority="high" decoding="async" alt="Birlikte en sevdiğimiz anlardan biri">
           <div class="photo-label"><strong>İlk bakış gibi.</strong><span>Bazı anlar hiç eskimiyor.</span></div>
         </article>
         <div style="display:grid; gap:24px">
           <article class="photo-card portrait reveal">
             <div class="placeholder"><span><b>Fotoğraf 02</b><br>assets/photo-2.jpg<br><br>Prensesimin sevdiğin bir portresi.</span></div>
-            <img src="assets/photo-2.jpg?v=6" width="420" height="630" loading="lazy" decoding="async" alt="Prensesimin bir portresi">
+            <img src="https://lh3.googleusercontent.com/d/1TmfQ1SGCCYAZtNjLFtao-5bm34rQuqZL=w2400" width="420" height="630" loading="lazy" decoding="async" alt="Prensesimin bir portresi">
             <div class="photo-label"><strong>Benim en güzel manzaram.</strong><span>Bir gülüş, bütün günü değiştirebilir.</span></div>
           </article>
           <article class="photo-card landscape reveal">
             <div class="placeholder"><span><b>Fotoğraf 03</b><br>assets/photo-3.jpg<br><br>Birlikte unutamadığınız bir gün.</span></div>
-            <img src="assets/photo-3.jpg?v=6" width="420" height="280" loading="lazy" decoding="async" alt="Birlikte unutamadığımız bir gün">
+            <img src="https://lh3.googleusercontent.com/d/1-amVN7n6wnj1SG_iALpNAexJRNjlIH5x=w2400" width="420" height="280" loading="lazy" decoding="async" alt="Birlikte unutamadığımız bir gün">
             <div class="photo-label"><strong>Yine biz.</strong><span>En sevdiğim yer: yanın.</span></div>
           </article>
         </div>
